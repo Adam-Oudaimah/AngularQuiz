@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 export class UserDetailsComponent implements OnInit {
   user: User;
   id: number = 0;
-  loading: boolean = false;
+  loading: boolean = true;
   constructor(
     private cd: ChangeDetectorRef,
     private _userService: UserService,

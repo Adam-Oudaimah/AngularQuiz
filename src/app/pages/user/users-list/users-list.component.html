@@ -27,12 +27,12 @@
     </div>
   </div>
 
-  <div *ngIf="loading" class="my-loading row">
+  <div *ngIf="loading" class="my-loading row justify-content-center">
     <mat-spinner [diameter]="50"></mat-spinner>
   </div>
 
-  <div class="row justify-content-center">
-    <table *ngIf="!loading" class="table table-striped w-50">
+  <div *ngIf="!loading" class="row justify-content-center">
+    <table class="table table-striped w-50">
       <thead></thead>
       <tbody>
         <tr *ngFor="let user of users">

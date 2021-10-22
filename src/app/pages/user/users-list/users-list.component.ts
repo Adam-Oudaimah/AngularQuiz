@@ -11,7 +11,7 @@ import { GlobalService } from '../../../core/services/global.service';
 })
 export class UsersListComponent implements OnInit {
   users: User[] = [];
-  loading: boolean = false;
+  loading: boolean = true;
   pagesNumber: number = 0;
   currentPage: number = 1;
   totalPages: number = 0;
@@ -37,6 +37,7 @@ export class UsersListComponent implements OnInit {
       this.pagesNumber = resp.total_pages;
       this.currentPage = resp.page;
       this.totalPages = resp.total_pages;
+      this.loading = false;
       this.cd.markForCheck();
     });
   }
