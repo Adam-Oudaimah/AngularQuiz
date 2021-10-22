@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="text-center users-container">
+      <div class="row">
+        <div class="col-lg-3">
+          <button mat-raised-button color="primary" (click)="refresPage()">
+            All Users
+          </button>
+        </div>
+        <div class="col-lg-6">
+          <h2 style="margin: auto">Users</h2>
+        </div>
+        <div class="col-lg-3">
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <input
+                type="number"
+                (keyup.enter)="searchUserById($event)"
+                matInput
+                placeholder="Search user by Id"
+              />
+              <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="my-loading row">
+    <mat-spinner [diameter]="50"></mat-spinner>
+  </div>
+
+  <div class="row justify-content-center">
+    <table *ngIf="!loading" class="table table-striped w-50">
+      <thead></thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>
+            <div class="user-card text-center">
+              <img
+                src="{{ user.avatar }}"
+                alt="Avatar"
+                (click)="showDetails(user.id)"
+              />
+              {{ user.first_name }} {{ user.last_name }}
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <button
+        color="primary"
+        mat-fab
+        style="margin: 10px"
+        [disabled]="currentPage == 1"
+        (click)="previousPage()"
+      >
+        <mat-icon style="font-size: 25px; color: white">
+          navigate_before
+        </mat-icon>
+      </button>
+      <button
+        color="primary"
+        mat-fab
+        style="margin: 10px"
+        [disabled]="currentPage == totalPages"
+        (click)="nextPage()"
+      >
+        <mat-icon style="font-size: 25px; color: white">
+          navigate_next t-
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

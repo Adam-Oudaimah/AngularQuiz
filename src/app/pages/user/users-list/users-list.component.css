@@ -1,0 +1,12 @@
+img {
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.user-card {
+  padding: 20px;
+}
+
+.users-container {
+  padding-top: 20px;
+}
